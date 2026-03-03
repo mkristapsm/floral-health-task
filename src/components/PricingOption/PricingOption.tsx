@@ -14,6 +14,7 @@ interface PricingOptionProps {
 	currentPrice: string;
 	pricePeriod: string;
 	badgeText?: string;
+	onClick: () => void;
 }
 
 export default function PricingOption({
@@ -29,6 +30,7 @@ export default function PricingOption({
 	currentPrice,
 	pricePeriod,
 	badgeText,
+	onClick,
 }: PricingOptionProps) {
 	const currentClass = type === 'offer'
 		? styles.pricing_option + " " + styles.offer
@@ -41,7 +43,7 @@ export default function PricingOption({
 				inputName={inputName}
 				inputTitle={inputTitle}
 				inputActive={inputActive}
-				onChange={() => {}}
+				onChange={onClick}
 			/>
 			<div className={styles.pricing_option_title}>
 				<p>{planTitle}</p>

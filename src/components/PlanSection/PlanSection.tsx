@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,6 +20,8 @@ import PricingOption from "../PricingOption/PricingOption";
 export default function PlanSection() {
     const router = useRouter();
     const reset = useFunnelStore((state) => state.reset);
+	const [selectedPlan, setSelectedPlan] = useState("6");
+
 	const weight = parseFloat(useFunnelStore((state) => state.weight));
 	const targetWeight = parseFloat(
 		useFunnelStore((state) => state.targetWeight),
@@ -194,31 +197,34 @@ export default function PlanSection() {
 								oldPrice="39.00"
 								currentPrice="35.00"
 								pricePeriod="per month"
+								onClick={() => setSelectedPlan("1")}
 							/>
 							<PricingOption
 								type="offer"
 								inputName="pricing_plan"
 								inputId="pricing_plan_02"
-								inputTitle="Checkbox for: 1 month plan"
+								inputTitle="Checkbox for: 6 month plan"
 								inputActive={true}
-								planTitle="1 Month Plan"
-								billingPeriod="Billed monthly"
+								planTitle="6 Month Plan"
+								billingPeriod="Billed every 6 months"
 								currency="$"
 								oldPrice="39.00"
-								currentPrice="35.00"
+								currentPrice="11.00"
 								pricePeriod="per month"
 								badgeText="Limited Offer - Save 75%"
+								onClick={() => setSelectedPlan("6")}
 							/>
 							<PricingOption
 								inputName="pricing_plan"
 								inputId="pricing_plan_03"
-								inputTitle="Checkbox for: 1 month plan"
-								planTitle="1 Month Plan"
-								billingPeriod="Billed monthly"
+								inputTitle="Checkbox for: 3 month plan"
+								planTitle="3 Month Plan"
+								billingPeriod="Billed every 3 months"
 								currency="$"
 								oldPrice="39.00"
-								currentPrice="35.00"
+								currentPrice="16.00"
 								pricePeriod="per month"
+								onClick={() => setSelectedPlan("3")}
 							/>
 						</div>
 					</PlanCard>
@@ -233,7 +239,7 @@ export default function PlanSection() {
 					aria-label="Continue to checkout page"
                     onClick={handleCheckoutClick}
 				>
-					<span>GET MY 6-MONTH PLAN</span>
+					<span>GET MY {selectedPlan}-MONTH PLAN</span>
 					<ChevronRightIcon />
 				</Button>
 				<div className={styles.terms_disclaimer}>
