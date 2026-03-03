@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,9 +18,11 @@ import PlanCard from "../PlanCard/PlanCard";
 import PricingOption from "../PricingOption/PricingOption";
 
 export default function PlanSection() {
-    const router = useRouter();
-    const reset = useFunnelStore((state) => state.reset);
+	const router = useRouter();
+	const reset = useFunnelStore((state) => state.reset);
 	const [selectedPlan, setSelectedPlan] = useState("6");
+	const [secondsLeft, setSecondsLeft] = useState(900);
+	const [offerValid, setOfferValid] = useState(true);
 
 	const weight = parseFloat(useFunnelStore((state) => state.weight));
 	const targetWeight = parseFloat(
@@ -51,17 +53,39 @@ export default function PlanSection() {
 		calculateBodyFat(targetWeight, height),
 	);
 
-    const handleCheckoutClick = () => {
-        const confirmReset = window.confirm(
-            "Are you sure you want to reset all your data? This action cannot be undone."
-        );
+	const handleCheckoutClick = () => {
+		const confirmReset = window.confirm(
+			"Are you sure you want to reset all your data? This action cannot be undone."
+		);
 
-        if (confirmReset) {
-            reset();
-            // Optional: redirect to home if using Next.js router
-            router.push('/');
-        }
-    };
+		if (confirmReset) {
+			reset();
+			// Optional: redirect to home if using Next.js router
+			router.push('/');
+		}
+	};
+
+	const formatTime = (seconds: number) => {
+		const mins = Math.floor(seconds / 60);
+		const secs = seconds % 60;
+		return `${mins}:${secs.toString().padStart(2, '0')}`;
+	};
+
+	useEffect(() => {
+		// Stop the timer if it hits 0
+		if (secondsLeft <= 0) {
+			setOfferValid(false);
+			return;
+		}
+
+		// Set up the interval
+		const timer = setInterval(() => {
+			setSecondsLeft((prev) => prev - 1);
+		}, 1000);
+
+		// Clean up the interval on unmount or update
+		return () => clearInterval(timer);
+	}, [secondsLeft]);
 
 	return (
 		<section className={styles.plan_section}>
@@ -181,7 +205,7 @@ export default function PlanSection() {
 
 					<PlanCard
 						customClass={styles.plan_selection_card}
-						headerTitle="Limited Time Offer - Expires in: 14:24"
+						headerTitle={offerValid ? `Limited Time Offer - Expires in: ${formatTime(secondsLeft)}` : "Offers"}
 					>
 						<p className={styles.plan_content_title}>
 							Select your plan
@@ -194,24 +218,24 @@ export default function PlanSection() {
 								planTitle="1 Month Plan"
 								billingPeriod="Billed monthly"
 								currency="$"
-								oldPrice="39.00"
-								currentPrice="35.00"
+								oldPrice={offerValid ? "39.00" : undefined}
+								currentPrice={offerValid ? "35.00" : "39.00"}
 								pricePeriod="per month"
 								onClick={() => setSelectedPlan("1")}
 							/>
 							<PricingOption
-								type="offer"
+								type={offerValid ? "offer" : undefined}
 								inputName="pricing_plan"
 								inputId="pricing_plan_02"
 								inputTitle="Checkbox for: 6 month plan"
-								inputActive={true}
+								inputActive={offerValid}
 								planTitle="6 Month Plan"
 								billingPeriod="Billed every 6 months"
 								currency="$"
-								oldPrice="39.00"
-								currentPrice="11.00"
+								oldPrice={offerValid ? "39.00" : undefined}
+								currentPrice={offerValid ? "11.00" : "39.00"}
 								pricePeriod="per month"
-								badgeText="Limited Offer - Save 75%"
+								badgeText={offerValid ? "Limited Offer - Save 75%" : undefined}
 								onClick={() => setSelectedPlan("6")}
 							/>
 							<PricingOption
@@ -221,8 +245,8 @@ export default function PlanSection() {
 								planTitle="3 Month Plan"
 								billingPeriod="Billed every 3 months"
 								currency="$"
-								oldPrice="39.00"
-								currentPrice="16.00"
+								oldPrice={offerValid ? "39.00" : undefined}
+								currentPrice={offerValid ? "16.00" : "39.00"}
 								pricePeriod="per month"
 								onClick={() => setSelectedPlan("3")}
 							/>
@@ -237,7 +261,7 @@ export default function PlanSection() {
 				<Button
 					customClass={styles.btn_plan_select}
 					aria-label="Continue to checkout page"
-                    onClick={handleCheckoutClick}
+					onClick={handleCheckoutClick}
 				>
 					<span>GET MY {selectedPlan}-MONTH PLAN</span>
 					<ChevronRightIcon />
