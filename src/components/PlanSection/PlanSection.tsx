@@ -147,7 +147,7 @@ export default function PlanSection() {
 				<h1>Your custom metabolic reset plan is ready</h1>
 				<div className={styles.plan_selection_wrapper}>
 					<div className={styles.plan_offer_information}>
-						<h4>Here’s a look at what you’ll get.</h4>
+						<div className={styles.plan_offer_title}>Here’s a look at what you’ll get.</div>
 						<ul>
 							<li>
 								<CheckMark />

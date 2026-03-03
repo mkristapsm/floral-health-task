@@ -258,9 +258,12 @@
         gap: px-to-rem(25);
         flex-grow: 1;
 
-        h4 {
+        .plan_offer_title {
             color: rgb(var(--color-deep-brown));
             font-family: var(--font-mulish);
+            font-size: px-to-rem(28);
+            font-weight: 400;
+            line-height: 1.2;
             width: 70%;
         }
 
