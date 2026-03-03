@@ -42,7 +42,7 @@ export default function StartSection({ onNext }: StartSectionProps) {
 					alt="Two woman embracing"
 					width={501}
 					height={466}
-					className="main_image"
+					className={style.main_image}
 				/>
 			</div>
 		</section>
