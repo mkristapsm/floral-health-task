@@ -18,6 +18,10 @@ body {
     }
 }
 
+main {
+    padding: 0 px-to-rem(16);
+}
+
 .container {
     max-width: px-to-rem(1008);
     margin: 0 auto;

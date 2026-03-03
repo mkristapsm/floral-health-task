@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     margin: auto 0 auto;
+    height: calc(100vh - px-to-rem(98));
 
     .container {
         display: flex;

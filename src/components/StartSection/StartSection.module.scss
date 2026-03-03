@@ -11,6 +11,10 @@
         gap: px-to-rem(86);
         max-width: px-to-rem(1008);
         margin: 0 auto;
+
+        @media (max-width: px-to-rem(1008)) {
+            flex-wrap: wrap;
+        }
     }
 
     .main_image {
@@ -20,6 +24,10 @@
         object-fit: cover;
         object-position: center;
         border-radius: px-to-rem(30);
+
+        @media (max-width: px-to-rem(1008)) {
+            width: 100%;
+        }
     }
 
     .content {

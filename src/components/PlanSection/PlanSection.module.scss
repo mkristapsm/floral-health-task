@@ -2,14 +2,18 @@
 
 .plan_section {
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: px-to-rem(52) 0 px-to-rem(96);
 
     .container {
         display: flex;
         align-items: center;
         flex-direction: column;
-        max-width: px-to-rem(711);
-        margin: 0 auto;
+
+        @media (max-width: px-to-rem(1008)) {
+            flex-wrap: wrap;
+        }
     }
 
     h1 {
@@ -24,8 +28,14 @@
     }
 
     .weight_card {
-        width: px-to-rem(456);
+        max-width: px-to-rem(456);
         margin: 0 0 px-to-rem(45);
+
+        @media (max-width: px-to-rem(1008)) {
+            max-width: unset;
+            width: 100%;
+            margin: 0 0 px-to-rem(45);
+        }
 
         &_title {
             display: flex;
@@ -33,6 +43,10 @@
             align-items: center;
             width: 100%;
             margin: 0 0 px-to-rem(34);
+
+            @media (max-width: px-to-rem(1008)) {
+                flex-wrap: wrap;
+            }
 
             p {
                 color: rgb(var(--color-black));
@@ -104,6 +118,10 @@
             width: 100%;
             margin: 0 0 px-to-rem(34);
 
+            @media (max-width: px-to-rem(767)) {
+                flex-wrap: wrap;
+            }
+
             .information_group {
                 display: flex;
                 flex-direction: column;
@@ -111,6 +129,14 @@
                 width: 50%;
                 margin: px-to-rem(30) 0 0;
                 position: relative;
+
+                @media (max-width: px-to-rem(767)) {
+                    width: 100%;
+
+                    &:after {
+                        display: none;
+                    }
+                }
 
                 &:first-child {
                     position: relative;
@@ -172,12 +198,20 @@
         width: px-to-rem(456);
         margin: 0;
 
+        @media (max-width: px-to-rem(767)) {
+            width: 100%;
+        }
+
         &_title {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
             margin: 0 0 px-to-rem(20);
+
+            @media (max-width: px-to-rem(767)) {
+                flex-wrap: wrap;
+            }
 
             p {
                 color: rgb(var(--color-deep-brown));
@@ -207,6 +241,14 @@
             border-radius: px-to-rem(8);
             border: 1px solid transparent;
             background-color: rgb(var(--color-white));
+
+            @media (max-width: px-to-rem(767)) {
+                width: 100%;
+
+                &:after {
+                    display: none;
+                }
+            }
 
             &:first-child {
                 position: relative;
@@ -249,7 +291,12 @@
     .plan_selection_wrapper {
         display: flex;
         gap: px-to-rem(15);
-        width: px-to-rem(709);
+        max-width: px-to-rem(709);
+
+        @media (max-width: px-to-rem(767)) {
+            flex-wrap: wrap;
+            max-width: unset;
+        }
     }
 
     .plan_offer_information {
@@ -293,6 +340,10 @@
 
     .plan_selection_card {
         min-width: 55%;
+
+        @media (max-width: px-to-rem(767)) {
+            min-width: 100%;
+        }
     }
 
     .plan_content_title {
@@ -331,6 +382,10 @@
     .btn_plan_select {
         width: px-to-rem(456);
 
+        @media (max-width: px-to-rem(767)) {
+            width: 100%;
+        }
+
         span,
         svg {
             margin-left: auto;
@@ -340,6 +395,10 @@
     .terms_disclaimer {
         width: px-to-rem(456);
         margin: px-to-rem(46) 0 0;
+
+        @media (max-width: px-to-rem(767)) {
+            width: 100%;
+        }
 
         p {
             color: rgb(var(--color-gray-muted));
