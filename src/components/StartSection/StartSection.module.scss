@@ -10,6 +10,7 @@
         align-items: center;
         gap: px-to-rem(86);
         max-width: px-to-rem(1008);
+        width: auto;
         margin: 0 auto;
 
         @media (max-width: px-to-rem(1008)) {
