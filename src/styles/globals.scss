@@ -1,0 +1,36 @@
+@use "abstracts" as *;
+@use "base" as *;
+
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-helvetica);
+    font-size: 16px;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    &.test {
+        background-color: red;
+    }
+}
+
+.container {
+    max-width: px-to-rem(1008);
+    margin: 0 auto;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

@@ -1,0 +1,58 @@
+@use "@/styles/abstracts/functions" as *;
+
+.tab_group {
+    display: inline-flex;
+    gap: px-to-rem(20);
+    background-color: transparent;
+    border-radius: px-to-rem(12);
+    padding: px-to-rem(5);
+    width: 100%;
+
+    button {
+        position: relative;
+        background-color: transparent;
+        border: none;
+        padding: px-to-rem(8) px-to-rem(24);
+        border-radius: px-to-rem(8);
+        min-width: px-to-rem(120);
+        flex-grow: 1;
+        cursor: pointer;
+
+        &:focus {
+            outline: 2px solid rgb(var(--color-deep-brown));
+            outline-offset: 2px;
+        }
+
+        &:focus-visible {
+            outline: 2px solid rgb(var(--color-deep-brown));
+            outline-offset: 2px;
+        }
+
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        span {
+            position: relative;
+            z-index: 2;
+            font-family: var(--font-mulish);
+            font-size: px-to-rem(20);
+            line-height: px-to-rem(38);
+            font-weight: 500;
+            color: rgba(var(--color-deep-brown), .5);
+            transition: color 0.3s ease;
+        }
+
+        &.active span {
+            color: rgba(var(--color-black), 1);
+        }
+
+        .active_bg {
+            position: absolute;
+            inset: 0; // Fills the button
+            background-color: rgb(var(--color-surface-soft)); // Your red background
+            border-radius: px-to-rem(8);
+            z-index: 1;
+        }
+    }
+}

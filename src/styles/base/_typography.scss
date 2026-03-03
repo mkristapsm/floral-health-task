@@ -1,0 +1,29 @@
+@use '../abstracts/functions' as *;
+
+h1,
+h2,
+h3 {
+    color: var(--text-main);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: px-to-rem(40);
+}
+
+h4 {
+    font-size: px-to-rem(28);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+p {
+    color: var(--text-body);
+    line-height: 1.5;
+}
+
+.text-small {
+    color: var(--text-muted);
+    font-size: px-to-rem(14);
+}

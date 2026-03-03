@@ -1,0 +1,18 @@
+.home_page {
+    background: var(--gradient-background-fade);
+    background-color: rgba(var(--color-hazel-tan), 0.5);
+}
+
+.steps_page {
+    background-color: rgb(var(--color-pearl-white));
+}
+
+.goal_page {
+    background: var(--gradient-background-fade);
+    background-color: rgba(var(--color-hazel-tan), 0.5);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,39 @@
+@use "@/styles/abstracts/functions" as *;
+
+.goal_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0 auto;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        max-width: px-to-rem(456);
+    }
+
+    h1 {
+        color: rgb(var(--color-deep-brown));
+        font-family: var(--font-lora);
+        font-size: px-to-rem(36);
+        line-height: 1.2;
+        font-weight: 400;
+        text-align: center;
+        min-height: px-to-rem(141);
+
+        span {
+            display: block;
+        }
+    }
+
+    .description {
+        color: rgb(var(--color-deep-brown));
+        font-family: var(--font-lora);
+        font-size: px-to-rem(24);
+        line-height: 1.2;
+        font-weight: 400;
+        text-align: center;
+        min-height: px-to-rem(88);
+        margin: px-to-rem(21) 0 px-to-rem(50);
+    }
+}

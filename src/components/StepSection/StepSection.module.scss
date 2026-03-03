@@ -1,0 +1,50 @@
+@use "@/styles/abstracts/functions" as *;
+
+.step_section {
+    --section-background-color: var(--color-pearl-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: px-to-rem(37) 0 0;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        max-width: px-to-rem(456);
+    }
+
+    h1 {
+        display: block;
+        justify-content: center;
+        color: rgb(var(--color-black));
+        font-family: var(--font-lora);
+        font-size: px-to-rem(28);
+        line-height: px-to-rem(38);
+        font-weight: 400;
+        text-align: center;
+    }
+
+    .description {
+        color: rgb(var(--color-gray-dark));
+        font-family: var(--font-mulish);
+        font-size: px-to-rem(18);
+        line-height: 1.2;
+        font-weight: 500;
+        text-align: center;
+        min-height: px-to-rem(52);
+        margin: px-to-rem(36) 0 px-to-rem(32);
+    }
+
+    .input_adjustment {
+        margin: px-to-rem(29) 0 0;
+    }
+
+    .email_terms_checkbox {
+        margin: px-to-rem(32) 0 0;
+    }
+
+    .submit {
+        width: 100%;
+        margin: px-to-rem(96) 0 0;
+    }
+}

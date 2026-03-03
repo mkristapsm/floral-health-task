@@ -1,0 +1,60 @@
+@use "@/styles/abstracts/functions" as *;
+
+.input_wrapper {
+    --input-symbol: "";
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(var(--color-gray-light));
+    border-radius: px-to-rem(12);
+    padding: px-to-rem(21) px-to-rem(48);
+    background-color: rgb(var(--color-white));
+    width: 100%;
+    position: relative;
+
+    &:after {
+        content: var(--input-symbol);
+        color: rgb(var(--color-obsidian));
+        font-family: var(--font-mulish);
+        font-size: px-to-rem(22);
+        line-height: 1.2;
+        font-weight: 500;
+        position: absolute;
+        right: px-to-rem(27);
+    }
+
+    input {
+        border: none;
+        background-color: transparent;
+        color: rgb(var(--color-obsidian));
+        font-family: var(--font-mulish);
+        font-size: px-to-rem(22);
+        line-height: 1.2;
+        font-weight: 500;
+        width: 100%;
+        z-index: 1;
+        outline: none;
+
+        &::placeholder {
+            opacity: 0;
+            color: rgb(var(--color-gray-medium));
+        }
+    }
+
+    input:not(:placeholder-shown) + label {
+        transform: translateY(-100%);
+        background-color: rgba(var(--section-background-color), 1);
+        color: rgb(var(--color-black));
+    }
+
+    label {
+        border: 2px solid transparent;
+        color: rgb(var(--color-gray-medium));
+        font-family: var(--font-mulish);
+        font-size: px-to-rem(22);
+        line-height: 1.2;
+        font-weight: 500;
+        position: absolute;
+        transform: translateY(0);
+        transition: all 0.2s ease;
+    }
+}

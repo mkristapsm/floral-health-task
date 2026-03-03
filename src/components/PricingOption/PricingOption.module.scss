@@ -1,0 +1,105 @@
+@use "@/styles/abstracts/functions" as *;
+
+.pricing_option {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(var(--color-gray-light-alt), 0.85);
+    border-radius: px-to-rem(8);
+    padding: px-to-rem(17) px-to-rem(24) px-to-rem(17) px-to-rem(21);
+    background-color: rgb(var(--color-white));
+    position: relative;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: rgb(var(--color-deep-brown));
+    }
+
+    &.offer {
+        border-color: rgb(var(--color-deep-brown));
+        border-width: 2px;
+        background-color: rgb(var(--color-soft-ivory));
+    }
+
+    .badge {
+        display: flex;
+        color: rgb(var(--color-white));
+        font-family: var(--font-mulish);
+        font-size: px-to-rem(11);
+        line-height: 1.2;
+        font-weight: 600;
+        background-color: rgb(var(--color-green-emerald));
+        border: 2px solid rgb(var(--color-white));
+        border-radius: px-to-rem(20);
+        padding: px-to-rem(7);
+        position: absolute;
+        top: px-to-rem(-16);
+    }
+
+    &_title {
+        display: flex;
+        flex-direction: column;
+        gap: px-to-rem(7);
+        margin: 0 0 0 px-to-rem(16);
+
+        p {
+            color: rgb(var(--color-deep-brown));
+            font-family: var(--font-mulish);
+            font-size: px-to-rem(19);
+            line-height: 1.2;
+            font-weight: 600;
+
+            &:last-child {
+                color: rgb(var(--color-gray-muted));
+                font-size: px-to-rem(11);
+            }
+        }
+    }
+
+    &_prices {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+
+        .old_price {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(var(--color-gray-muted));
+            font-family: var(--font-mulish);
+            font-size: px-to-rem(16);
+            line-height: 1.2;
+            font-weight: 600;
+            width: fit-content;
+            position: relative;
+            margin: 0 0 px-to-rem(3);
+
+            &:after {
+                content: "";
+                width: calc(100% + px-to-rem(6));
+                height: 2px;
+                left: px-to-rem(-3);
+                background-color: rgb(var(--color-red-alert));
+                position: absolute;
+            }
+        }
+
+        .current_price {
+            color: rgb(var(--color-deep-brown));
+            font-family: var(--font-mulish);
+            font-size: px-to-rem(19);
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        .billing_period {
+            color: rgb(var(--color-gray-muted));
+            font-family: var(--font-mulish);
+            font-size: px-to-rem(11);
+            line-height: 1.2;
+            font-weight: 600;
+            margin: px-to-rem(2) 0 0;
+        }
+    }
+}

@@ -1,0 +1,156 @@
+@use "@/styles/abstracts/functions" as *;
+
+.btn {
+
+    &_primary {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(var(--color-deep-brown));
+        appearance: none;
+        border: none;
+        border-radius: px-to-rem(12);
+        color: rgb(var(--color-white));
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(28);
+        font-weight: 600;
+        white-space: nowrap;
+        padding: px-to-rem(13) px-to-rem(13);
+        flex-grow: 1;
+        transition: all 0.25s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(var(--color-charcoal-dark));
+        }
+
+        &:focus {
+            outline: 2px solid rgb(var(--color-deep-brown));
+            outline-offset: 2px;
+        }
+
+        &:focus-visible {
+            outline: 2px solid rgb(var(--color-deep-brown));
+            outline-offset: 2px;
+        }
+
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        svg {
+            width: auto;
+            height: px-to-rem(16);
+            flex-shrink: 0;
+        }
+    }
+
+    &_secondary {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(var(--color-gray-light), 0.5);
+        appearance: none;
+        border: none;
+        border-radius: px-to-rem(12);
+        color: rgb(var(--color-deep-brown));
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(28);
+        font-weight: 600;
+        white-space: nowrap;
+        padding: px-to-rem(13) px-to-rem(13);
+        flex-grow: 1;
+        transition: all 0.25s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(var(--color-charcoal-dark));
+        }
+
+        &:focus {
+            outline: 2px solid rgb(var(--color-deep-brown));
+            outline-offset: 2px;
+        }
+
+        &:focus-visible {
+            outline: 2px solid rgb(var(--color-deep-brown));
+            outline-offset: 2px;
+        }
+
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        svg {
+            width: auto;
+            height: px-to-rem(16);
+            flex-shrink: 0;
+        }
+    }
+
+    &_secondary_rounded {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(var(--color-gray-light), 0.5);
+        appearance: none;
+        border: none;
+        border-radius: 50%;
+        color: rgb(var(--color-deep-brown));
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(28);
+        font-weight: 600;
+        white-space: nowrap;
+        width: px-to-rem(47);
+        height: px-to-rem(47);
+        flex-grow: 1;
+        transition: all 0.25s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(var(--color-charcoal-dark));
+            color: rgb(var(--color-white));
+        }
+
+        &:focus {
+            outline: 2px solid rgb(var(--color-deep-brown));
+            outline-offset: 2px;
+        }
+
+        &:focus-visible {
+            outline: 2px solid rgb(var(--color-deep-brown));
+            outline-offset: 2px;
+        }
+
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        svg {
+            width: auto;
+            height: px-to-rem(16);
+            flex-shrink: 0;
+        }
+    }
+}

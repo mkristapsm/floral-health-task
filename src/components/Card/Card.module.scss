@@ -1,0 +1,8 @@
+@use "@/styles/abstracts/functions" as *;
+
+.card {
+    padding: px-to-rem(39) px-to-rem(24) px-to-rem(46);
+    background-color: rgb(var(--color-white));
+    border-radius: px-to-rem(12);
+    box-shadow: 0 4px 18px rgba(var(--color-black), 0.17);
+}
