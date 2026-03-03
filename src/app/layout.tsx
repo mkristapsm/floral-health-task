@@ -39,7 +39,7 @@ export default function RootLayout({
 }) {
 
 	return (
-		<html lang="en" className={`${lora.variable} ${montserrat.variable}`}>
+		<html lang="en" className={`${lora.variable} ${montserrat.variable} ${mulish.variable}`}>
 			<body className={styles.home_page}>
 				<BodyManager />
 				{children}
